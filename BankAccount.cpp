@@ -21,3 +21,27 @@ double BankAccount::getBalance() const {
 void BankAccount::setBalance(double amount) {
     balance = amount;
 }
+// Deposits money into the account
+void BankAccount::deposit(double amount) {
+    if (amount > 0) {
+        balance += amount;
+        cout << "Deposited $" << amount << " successfully.\n";
+    } else {
+        cout << "Invalid amount. Deposit must be more than $0.\n";
+    }
+}
+
+// Withdraws money from the account if balance is sufficient
+bool BankAccount::withdraw(double amount) {
+    if (amount > 0 && amount <= balance) {
+        balance -= amount;
+        cout << "Withdrew $" << amount << " successfully.\n";
+        return true;
+    } else if (amount > balance) {
+        cout << "Insufficient funds. You only have $" << balance << ".\n";
+        return false;
+    } else {
+        cout << "Invalid amount. Withdrawal must be more than $0.\n";
+        return false;
+    }
+}

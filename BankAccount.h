@@ -17,5 +17,8 @@ public:
     bool validateLogin(const string& id, const string& pwd) const;
     double getBalance() const;
     void setBalance(double amount);
+    void deposit(double amount);  // Deposit function
+    bool withdraw(double amount); // Withdraw function
+
 };
 #endif
